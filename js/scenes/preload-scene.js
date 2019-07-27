@@ -4,8 +4,8 @@
 // import './../strings';
 // import bg_night_base from '../../assets/backgrounds/bg_night_base.jpg';
 
-import gatete1 from '../assets/gatete1';
-import gatete2 from '../assets/gatete2';
+import gatete1 from '../../assets/gatete1.jpg';
+import gatete2 from '../../assets/gatete2.jpg';
 
 // import bgAtlasImg from '../../assets/backgrounds/backgrounds.png';
 // import bgAtlasData from '../../assets/backgrounds/backgrounds.json';
@@ -18,15 +18,19 @@ export default class PreloaderScene extends Phaser.Scene {
     preload() {
         console.log('Preload-Preloader')
         // this.scale.on('resize', (gameSize, baseSize, displaySize, resolution) => { console.log(gameSize, baseSize, displaySize, resolution); });
-        this.loader = this.add.graphics();
-        // // var graphics = new MyGraphics(scene, options);
-        // // var graphics = this.graphics = this.add.graphics();
-        // //this.graphics.moveTo(100,100)
-        // // this.graphics.lineTo(100,300)
-        // this.graphics.lineStyle(8, 0xffffff);
-        this.loader.lineStyle(5, 0xFF00FF)
-        this.loader.fillStyle(0xffffff, 1);
-        this.loader.fillRect((this.scale.width / 2) - (this.scale.width * 0.45),this.scale.height / 2 - 50, this.scale.width * 0.9, 100);
+        var progress = this.loader = this.add.graphics();
+
+        this.load.on('progress',(value)=> {
+            progress.clear();
+            // progress.lineStyle(5, 0xFF00FF);
+            progress.fillStyle(0xffffff, 1);
+            progress.fillRect((this.scale.width / 2) - (this.scale.width * 0.45),this.scale.height / 2 - this.scale.height * 0.1, this.scale.width * value, this.scale.height * 0.05);
+            console.log('Progress-bar');
+        });
+        
+        this.load.image('gatete1',gatete1);
+        this.load.image('gatete2',gatete2);
+
         // this.graphics.lineStyle(8,0xdaac01);
         // this.graphics.strokeCircle(this.scale.width/2,this.scale.height/2,500)
         // this.graphics.fillStyle(0xfae704, 1);
