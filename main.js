@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 
 import Preloader from './js/scenes/preload-scene';
-import Menu from './js/scenes/menu-scene';
+import Menu from './js/scenes/menu-scene.js';
 import Battle from './js/scenes/battle-scene';
 
 // const gameHeight = 640;

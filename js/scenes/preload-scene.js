@@ -4,8 +4,8 @@
 // import './../strings';
 // import bg_night_base from '../../assets/backgrounds/bg_night_base.jpg';
 
-// import atlasImg from '../../assets/pixelart_rpg/pixelart_rpg.png';
-// import atlasData from '../../assets/pixelart_rpg/pixelart_rpg.json';
+import gatete1 from '../assets/gatete1';
+import gatete2 from '../assets/gatete2';
 
 // import bgAtlasImg from '../../assets/backgrounds/backgrounds.png';
 // import bgAtlasData from '../../assets/backgrounds/backgrounds.json';
@@ -16,32 +16,33 @@ export default class PreloaderScene extends Phaser.Scene {
     }
 
     preload() {
+        console.log('Preload-Preloader')
         // this.scale.on('resize', (gameSize, baseSize, displaySize, resolution) => { console.log(gameSize, baseSize, displaySize, resolution); });
-        this.graphics = this.add.graphics();
-        // var graphics = new MyGraphics(scene, options);
-        // var graphics = this.graphics = this.add.graphics();
-        //this.graphics.moveTo(100,100)
-        // this.graphics.lineTo(100,300)
-        this.graphics.lineStyle(8, 0xffffff);
-        // graphics.lineStyle(5, 0xFF00FF, 1.0)
-        this.graphics.fillStyle(0xffffff, 1);
-        this.graphics.fillCircle(this.scale.width/2,this.scale.height/2,500);
-        this.graphics.lineStyle(8,0xdaac01);
-        this.graphics.strokeCircle(this.scale.width/2,this.scale.height/2,500)
-        this.graphics.fillStyle(0xfae704, 1);
-        this.graphics.fillCircle(this.scale.width/2,this.scale.height/2,200);
+        this.loader = this.add.graphics();
+        // // var graphics = new MyGraphics(scene, options);
+        // // var graphics = this.graphics = this.add.graphics();
+        // //this.graphics.moveTo(100,100)
+        // // this.graphics.lineTo(100,300)
+        // this.graphics.lineStyle(8, 0xffffff);
+        this.loader.lineStyle(5, 0xFF00FF)
+        this.loader.fillStyle(0xffffff, 1);
+        this.loader.fillRect((this.scale.width / 2) - (this.scale.width * 0.45),this.scale.height / 2 - 50, this.scale.width * 0.9, 100);
+        // this.graphics.lineStyle(8,0xdaac01);
+        // this.graphics.strokeCircle(this.scale.width/2,this.scale.height/2,500)
+        // this.graphics.fillStyle(0xfae704, 1);
+        // this.graphics.fillCircle(this.scale.width/2,this.scale.height/2,200);
 
         // this.graphics.fillRect(50, 250, 100, 100);
         // // square1.fillRect(0, (height / 2) - (height * 0.05), width, (height * 0.1));
         // // // square2.fillRect(50,250,100,100);
-        var progress = this.progress = this.add.graphics();
-        const { width, height } = this.scale;
+        // var progress = this.progress = this.add.graphics();
+        // const { width, height } = this.scale;
 
-        this.load.on('progress', (value) => {
-            progress.clear();
-            progress.fillStyle(0xffffff, 1);
-            progress.fillRect(0, (height / 2) - (height * 0.05), width * value, (height * 0.1));
-        });
+        // this.load.on('progress', (value) => {
+        //     progress.clear();
+        //     progress.fillStyle(0xffffff, 1);
+        //     progress.fillRect(0, (height / 2) - (height * 0.05), width * value, (height * 0.1));
+        // });
 
         // const scene = this;
 
