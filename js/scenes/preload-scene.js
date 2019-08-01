@@ -20,16 +20,16 @@ export default class PreloaderScene extends Phaser.Scene {
         // this.scale.on('resize', (gameSize, baseSize, displaySize, resolution) => { console.log(gameSize, baseSize, displaySize, resolution); });
         var progress = this.loader = this.add.graphics();
 
-        this.load.on('progress',(value)=> {
+        this.load.on('progress', (value) => {
             progress.clear();
             // progress.lineStyle(5, 0xFF00FF);
             progress.fillStyle(0xffffff, 1);
-            progress.fillRect((this.scale.width / 2) - (this.scale.width * 0.45),this.scale.height / 2 - this.scale.height * 0.1, this.scale.width * value, this.scale.height * 0.05);
+            progress.fillRect((this.scale.width / 2) - (this.scale.width * 0.45), this.scale.height / 2 - this.scale.height * 0.1, this.scale.width * value, this.scale.height * 0.05);
             console.log('Progress-bar');
         });
-        
-        this.load.image('gatete1',gatete1);
-        this.load.image('gatete2',gatete2);
+
+        this.load.image('gatete1', gatete1);
+        this.load.image('gatete2', gatete2);
 
         // this.graphics.lineStyle(8,0xdaac01);
         // this.graphics.strokeCircle(this.scale.width/2,this.scale.height/2,500)
@@ -50,11 +50,11 @@ export default class PreloaderScene extends Phaser.Scene {
 
         // const scene = this;
 
-        // this.load.on('complete', () => {
-        //   this.input.on('pointerdown', () => {
-        //       progress.destroy();
-        //       scene.scale.startFullscreen();
-        //       this.scene.start('MenuScene');
+        // this.load.on('complete', () => { // preguntar a Joaquín que hace esto
+        //     this.input.on('pointerdown', () => {
+        //         progress.destroy();
+        //         scene.scale.startFullscreen();
+        //         this.scene.start('MenuScene');
         //     });
         // });
 
@@ -132,7 +132,7 @@ export default class PreloaderScene extends Phaser.Scene {
         //         }),
         //     });
         // });
-        // this.progress.destroy();
+        // this.progress.destroy(); // preguntar a Joaquín que hacía esto
         this.scene.start('MenuScene');
     }
 }
