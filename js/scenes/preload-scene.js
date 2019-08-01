@@ -16,7 +16,7 @@ export default class PreloaderScene extends Phaser.Scene {
     }
 
     preload() {
-        console.log('Preload-Preloader')
+        // console.log('Preload-Preloader')
         // this.scale.on('resize', (gameSize, baseSize, displaySize, resolution) => { console.log(gameSize, baseSize, displaySize, resolution); });
         var progress = this.loader = this.add.graphics();
 
@@ -133,6 +133,6 @@ export default class PreloaderScene extends Phaser.Scene {
         //     });
         // });
         // this.progress.destroy();
-        // this.scene.start('BattleScene');
+        this.scene.start('MenuScene');
     }
 }
