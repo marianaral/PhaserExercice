@@ -18,7 +18,7 @@ export default class PreloaderScene extends Phaser.Scene {
     preload() {
         // console.log('Preload-Preloader')
         // this.scale.on('resize', (gameSize, baseSize, displaySize, resolution) => { console.log(gameSize, baseSize, displaySize, resolution); });
-        var progress = this.loader = this.add.graphics();
+        var progress = this.progress = this.add.graphics();
 
         this.load.on('progress', (value) => {
             progress.clear();
@@ -50,7 +50,7 @@ export default class PreloaderScene extends Phaser.Scene {
 
         // const scene = this;
 
-        // this.load.on('complete', () => { // preguntar a Joaquín que hace esto
+        // this.load.on('complete', () => { 
         //     this.input.on('pointerdown', () => {
         //         progress.destroy();
         //         scene.scale.startFullscreen();
@@ -132,7 +132,18 @@ export default class PreloaderScene extends Phaser.Scene {
         //         }),
         //     });
         // });
-        // this.progress.destroy(); // preguntar a Joaquín que hacía esto
+
+
+        this.anims.create({
+            key: `gatetes`,
+            frameRate: 1,
+            frames: [
+                { key: 'gatete1' },
+                { key: 'gatete2' },
+            ],
+            repeat: -1
+        });
+        this.progress.destroy(); // preguntar a Joaquín que hacía esto
         this.scene.start('MenuScene');
     }
 }
